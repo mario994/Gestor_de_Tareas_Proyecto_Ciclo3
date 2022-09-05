@@ -1,27 +1,62 @@
 package ciclo3.grupo2.Modelo;
-/*
- * La clase CrearNuevoProyecto se encarga de crear un objeto con los
- * datos ingresados, en este caso crea una nueva tarea
- */
+
+import javax.swing.JOptionPane;
 public class CrearNuevoProyecto {
-    private int idProyecto;
+    final private int idProyecto;
+    private static int idSiguiente = 1;
     private String nombreProyecto;
     private String descripcionProyecto;
     private String fechaInicioProyecto;
     private String estado;
 
-    //constructor para settear los valores iniciales de las variables
-    public CrearNuevoProyecto(int idProyecto, String nombreProyecto, String descripcionProyecto, String fechaInicioProyecto, String estado){
-        this.idProyecto = idProyecto;
-        this.nombreProyecto = nombreProyecto;
-        this.descripcionProyecto = descripcionProyecto;
-        this.fechaInicioProyecto = fechaInicioProyecto;
-        this.estado = estado;
+    public CrearNuevoProyecto(){
+        idProyecto = idSiguiente;
+        idSiguiente++;
+
+        this.nombreProyecto = JOptionPane.showInputDialog("Ingresa el nombre del proyecto: ");
+
+        this.descripcionProyecto = JOptionPane.showInputDialog("Ingresa una descripción del proyecto: ");
+
+        this.fechaInicioProyecto = JOptionPane.showInputDialog("Ingresa una fecha de inicio para el proyecto: ");
+
+        this.estado = JOptionPane.showInputDialog("Ingresa el estado del proyecto: ");
     }
 
-    //metdodo para mostrar las tareas creadas todavia no funciona correctamente
+    public int getIdProyecto(){
+        return idProyecto;
+
+    }
+
+    public String getNombreProyecto() {
+        return nombreProyecto;
+    }
+
+    public String getEstado(){
+        return estado;
+    }
+
+    public void setNombreProyecto(){
+        this.nombreProyecto = JOptionPane.showInputDialog("Ingresa el nombre del proyecto: ");
+    }
+    
+    public void setDescripcion() {
+        this.descripcionProyecto = JOptionPane.showInputDialog("Ingresa una descripción del proyecto: ");
+    }
+
+    public void setFecha() {
+        this.fechaInicioProyecto = JOptionPane.showInputDialog("Ingresa una fecha de inicio para el proyecto: ");
+    }
+
+    public void setEstado() {
+        this.estado = JOptionPane.showInputDialog("Ingresa el estado del proyecto: ");
+    }
+
+
     public String mostrarDetalles(){
-        return "id proyecto " + idProyecto + " Nombre: " + nombreProyecto + " Descripción: " + descripcionProyecto + " fecha de inicio: " + fechaInicioProyecto + " estado: " + estado;
+        return  "Id proyecto: \t" + idProyecto + "\n" + 
+                "Nombre: \t" + nombreProyecto + "\n" +
+                "Descripción: \t" + descripcionProyecto + "\n" + 
+                "Fecha de inicio: \t" + fechaInicioProyecto + "\n" +
+                "Estado: \t" + estado;
     }
-
 }

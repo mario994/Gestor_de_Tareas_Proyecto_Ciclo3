@@ -1,31 +1,56 @@
 package ciclo3.grupo2.Controlador;
+
+import java.util.ArrayList;
 import java.util.Scanner;
 import ciclo3.grupo2.Modelo.CrearNuevoProyecto;
-
-/*
- *La clase ControladorPrincipal recibe la opción que el usuario quiere realizar, la idea es que esta clase llave a otras clases como por ejemplo la clase CrearNuevoProyecto si se ingresa el numero 1 como opción  
- */
+import ciclo3.grupo2.Modelo.EditarTarea;
+import ciclo3.grupo2.Modelo.EliminarTarea;
 
 public class ControladorPrincipal {
-    // La clase Scanner recibe la entrada del usuario
-    static Scanner sc = new Scanner(System.in);
-    //La variable opcion guarda el contenido ingresado en scanner 
-    static int opcion = 0; 
+    private static Scanner sc = new Scanner(System.in);
+    private static int opcion = 0; 
+    public static ArrayList<CrearNuevoProyecto> listaProyectos = new ArrayList<CrearNuevoProyecto>();
 
-    /*El metodo setOption ejecuta la clase Scanner y guarda la entrada del usuario dentro de la variable opcion
-    */
-    public static void setOpcion(){ //setter
-        opcion = sc.nextInt(); //se guarda la entrada del usuario 
-        
+    public static void setOpcion(){ 
+        opcion = sc.nextInt();
+
         if(opcion == 1){ 
-            /*el if evalua el tipo de entrada del usuario para saber 
-             * para saber que tipo de codigo debe ejecutarse
-            */
-            System.out.println("todo bien");
-            //dentro del if se deberia ejecutar la clase CrearNuevoProyecto
-        } else {
-            System.out.println("algo salio mal");
+            try {
+                listaProyectos.add(new CrearNuevoProyecto());
+                System.out.println("---------------------------------------------------------");
+                System.out.println("Se ha agregado una nueva tarea");
+                System.out.println("---------------------------------------------------------\n");
+            } catch (Exception e) {
+                System.out.println("---------------------------------------------------------");
+                System.out.println("ERROR al momento de agregar la tarea");
+                System.out.println("---------------------------------------------------------\n");
+            }
+
+        } else if(opcion == 2){
+            if(!listaProyectos.isEmpty()){
+                for (int i = 0; i < listaProyectos.size(); i++) {
+                    System.out.println(listaProyectos.get(0).mostrarDetalles());
+                }
+                System.out.println("---------------------------------------------------------");
+            }else{
+                System.out.println("---------------------------------------------------------");
+                System.out.println("No se ha creado ninguna tarea");
+                System.out.println("---------------------------------------------------------\n");
+            }
+
+        } else if(opcion == 3){
+
+            EditarTarea.editar();
+
+        } else if(opcion == 4){
+
+            EliminarTarea.eliminar();
+            
         }
     };
+
+    public static int getOpcion(){
+        return opcion;
+    }
 
 }
