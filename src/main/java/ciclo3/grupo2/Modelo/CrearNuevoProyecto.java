@@ -7,7 +7,15 @@ public class CrearNuevoProyecto {
     private String nombreProyecto;
     private String descripcionProyecto;
     private String fechaInicioProyecto;
-    private String estado;
+    private String estado; //estado pasaria a ser un enum 
+    /*
+     * Sin asingnar
+     * en ejecucion tiene los siguiente dos estados (atrasado - al dia)
+     * pendiente por revisión
+     * finalizado para ser archivado
+     * Las tareas en estado finalizado no se pueden eliminar
+     * las tareas se pueden eliminar solo en estado sin asignar y en ejecucion
+     */
 
     public CrearNuevoProyecto(){
         idProyecto = idSiguiente;

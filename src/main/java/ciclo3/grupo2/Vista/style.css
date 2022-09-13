@@ -86,6 +86,45 @@ header {
 Fin: Estilos de la Cabecera
 ==============================
 */
+/*
+==============================
+Inicia: Estilos Formulario
+==============================
+*/
+    .form-container{
+        padding: 10px 0;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+       
+    }
+    
+    .form-container form{
+        display: flex;
+        justify-content: space-between;
+        max-width: 600px;
+    }
+
+    .form-container label{
+        display: block;
+    }
+
+    .form-subcontainer{
+        padding-left: 20px;
+    }
+
+    .btn-form-container{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        padding: 20px 0;
+    }
+    
+/*
+==============================
+Fin: Estilos Formulario
+==============================
+*/
 
 /*
 =================================

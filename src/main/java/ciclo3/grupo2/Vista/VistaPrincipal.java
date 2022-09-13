@@ -17,6 +17,11 @@ public class VistaPrincipal {
             System.out.println("2 Mostrar las tareas existentes");
             System.out.println("3 Editar una tarea");
             System.out.println("4 Eliminar una tarea");
+            // System.out.println("5 Archivar tarea");
+            // crear opcion de archivar tarea 
+            /* ETIQUETA las tareas como ya realizadas
+             * 
+             */
             System.out.println("5 Salir del programa");
             System.out.print("\n");
             System.out.println("---------------------------------------------------------");
